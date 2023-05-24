@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== "production") {
   window.API = API;
 }
 
-let followToggleSelector = "";
+let followToggleSelector = ".follow-toggle";
 let infiniteTweetsSelector = "";
 let usersSearchSelector = "";
 let tweetComposeSelector = "";
