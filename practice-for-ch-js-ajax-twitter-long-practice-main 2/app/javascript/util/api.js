@@ -8,7 +8,12 @@ async function customFetch(url, options = {}) {
     ...options.headers
   };
   
-  return await fetch(url, options);
+  const response = await fetch(url, options);
+  if (response.ok) {
+    return await response.json();
+  } else {
+    throw response;
+  }
 }
 
 
@@ -21,7 +26,7 @@ return customFetch(`/users/${id}/follow`,options)
 
 export const unfollowUser = (id) => {
   const options = {
-  method: "DESTROY"
+  method: "DELETE"
   }
   return customFetch(`/users/${id}/follow`,options)
 }

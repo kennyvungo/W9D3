@@ -8,7 +8,7 @@ export default class FollowToggle {
 
   async handleClick(event) {
     event.preventDefault();
-    console.log(this.toggleButton.dataset.followState);
+    // console.log(this.toggleButton.dataset.followState);
     if (this.toggleButton.dataset.followState === "followed") {
       this.unfollow;
     } else {
@@ -17,11 +17,15 @@ export default class FollowToggle {
   }
 
   async follow() {
-    // Your code here
+    this.followState("following");
+    await API.followUser(this.toggleButton.dataset.userId);
+    this.followState("followed");
   }
 
   async unfollow() {
-    // Your code here
+    this.followState("unfollowing");
+    await API.unfollowUser(this.toggleButton.dataset.userId);
+    this.followState("unfollowed");
   }
 
   render() {
@@ -37,5 +41,6 @@ export default class FollowToggle {
   set followState(newState) {
     this.toggleButton.dataset.followState = newState;
     this.render();
+    console.log(this.followState);
   }
 }
