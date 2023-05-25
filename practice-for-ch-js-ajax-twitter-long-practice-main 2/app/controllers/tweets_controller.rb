@@ -10,8 +10,7 @@ class TweetsController < ApplicationController
     # simulate latency
     sleep(1)
     @tweets = current_user.page_of_tweets(type: :feed, offset: params[:limit])
-    render json: @tweets
-    # Your code here
+    render :index
   end
 
   def create

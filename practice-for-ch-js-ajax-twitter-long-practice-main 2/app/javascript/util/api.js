@@ -30,3 +30,9 @@ export const unfollowUser = (id) => {
   }
   return customFetch(`/users/${id}/follow`,options)
 }
+
+export const fetchTweets = (options = {}) => {
+  const queryParams = new URLSearchParams(options);
+  queryParams.toString();
+  return customFetch(`/tweets?${queryParams}`);
+}
