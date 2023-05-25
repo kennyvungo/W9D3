@@ -30,7 +30,20 @@ export default class InfiniteTweets {
 
   createTweet(tweetData) {
     const li = document.createElement("li");
-      
+      const div = document.createElement("div");
+      div.classList.add("tweet");
+      li.appendChild(div);
+      const h = document.createElement("h3");
+      h.classList.add("author");
+      div.appendChild(h);
+      const a = document.createElement("a");
+      a.href = tweetData.href;
+      a.innerText = a.href.textContent;
+      h.appendChild(a);
+      const span = document.createElement("span");
+      span.classList.add("created-at");
+
+
     return li;
   }
 
